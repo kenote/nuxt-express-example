@@ -6,6 +6,9 @@ export default {
   env: {},
   srcDir: 'client',
   mode: 'universal',
+  ignoreOptions: {
+    ignorecase: false
+  },
   head: {
     title: config.name,
     meta: [ 
@@ -16,6 +19,7 @@ export default {
     '~/assets/scss/common.scss'
   ],
   plugins: [
+    '~/plugins/composition-api',
     '~/plugins/component',
     { src: '~/plugins/element-ui', ssr: true }
   ],

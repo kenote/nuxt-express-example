@@ -1,16 +1,18 @@
 import * as http from 'http'
 import * as express from 'express'
-import { nuxt, nuxtHandler } from '~/nuxt.config'
+import { nuxt, nuxtReady, nuxtHandler } from '~/nuxt.config'
+import { Host, Port } from '~/config'
 
 async function start (): Promise<void> {
   let app: express.Application = express()
   
   // Render Nuxt ...
+  await nuxtReady()
   app.use(nuxtHandler, nuxt.render)
   
   // Running Server ...
-  http.createServer(app).listen(3000, '0.0.0.0', () => {
-    console.log(`Service running in %s environment, PORT: %d ...`, process.env.NODE_ENV || 'development', 3000)
+  http.createServer(app).listen(Port, Host, () => {
+    console.log(`\nService running in %s environment, PORT: %d ...`, process.env.NODE_ENV || 'development', Port)
   })
 }
 

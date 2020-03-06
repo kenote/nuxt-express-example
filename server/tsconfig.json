@@ -19,6 +19,7 @@
     "suppressImplicitAnyIndexErrors": true,
     "allowSyntheticDefaultImports": false,
     "downlevelIteration": true,
+    "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
       "~/*": [
